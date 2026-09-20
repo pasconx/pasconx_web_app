@@ -1,7 +1,7 @@
+@import "lenis/dist/lenis.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "lenis/dist/lenis.css";
 
 :root, [data-theme="dark"] { --ink:#0b0d10; --paper:#f0f0eb; --acid:#3f7cff; --blue:#83a9ff; --line:rgba(240,240,235,.22); }
 [data-theme="light"] { --ink:#f7f9fc; --paper:#0a0d12; --acid:#1268e8; --blue:#5d8fe8; --line:rgba(10,13,18,.15); }
