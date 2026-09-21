@@ -17,7 +17,7 @@ import { media } from "@/features/media/assets";
 import { faqs } from "@/features/faq/data";
 
 const courses = featureCourses;
-const subscribeToPreloaderPreference = () => () => {};
+const subscribeToPreloaderPreference = () => () => { };
 const getServerPreloaderPreference = () => false;
 const getClientPreloaderPreference = () => window.sessionStorage.getItem("pascalx-skip-preloader") === "true";
 
@@ -224,17 +224,16 @@ export default function Home() {
               <div className="hero-copy">
                 <p className="eyebrow"><i /> Industry-Focused Technology Education · Live Cohorts</p>
                 <h1>
-                  <span className="hero-title-leading">Build skills.</span>
+                  <span className="hero-title-leading">Build skills</span>
                   <em>
                     <TextLoop
                       items={[
-                        "Think beyond tutorials.",
-                        "Turn knowledge into practice.",
-                        "Build what you learn.",
-                        "Create. Solve. Innovate.",
-                        "Prepare for what's next.",
-                        "Learn. Practice. Evolve.",
-                        { text: "More to Xplore.", href: "/programmes" },
+                        "Think beyond tutorials",
+                        "Turn knowledge into practice",
+                        "Build what you learn",
+                        "Create. Solve. Innovate",
+                        "Prepare for what's next",
+                        "Learn. Practice. Evolve",
                       ]}
                     />
                   </em>
@@ -338,7 +337,7 @@ export default function Home() {
           <section className="faq-section" id="faq" data-reveal aria-labelledby="faq-heading">
             <div className="faq-heading">
               <p className="eyebrow"><i /> Common questions</p>
-              <h2 id="faq-heading">Know before<br /><em>you begin.</em></h2>
+              <h2 id="faq-heading">Questions<br />before<br /><em>you begin.</em></h2>
             </div>
             <div className="faq-list">
               {faqs.map(([question, answer], index) => (
