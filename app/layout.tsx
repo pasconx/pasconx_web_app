@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { StructuredData } from "@/components/seo/StructuredData";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SmoothScroll />
           {children}
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
