@@ -302,11 +302,10 @@ export function HireWithUs() {
     <section
       className="hire-section"
       id="hire"
-      data-reveal
       aria-labelledby="hire-heading"
     >
       {/* 1. Header Block */}
-      <div className="hire-header" data-reveal-item>
+      <div className="hire-header">
         <p className="eyebrow">
           <i /> FOR EMPLOYERS
         </p>
@@ -323,7 +322,7 @@ export function HireWithUs() {
       </div>
 
       {/* 2. Why Hire PASCONX Talent */}
-      <div className="hire-block" data-reveal-item>
+      <div className="hire-block">
         <div className="hire-subhead">
           <p className="eyebrow">
             <i /> WHY HIRE PASCONX TALENT
@@ -342,7 +341,7 @@ export function HireWithUs() {
       </div>
 
       {/* 3. Our Talent Areas */}
-      <div className="hire-block" data-reveal-item>
+      <div className="hire-block">
         <div className="hire-subhead">
           <p className="eyebrow">
             <i /> TALENT AREAS
@@ -373,7 +372,7 @@ export function HireWithUs() {
       </div>
 
       {/* 4. How to Hire with PASCONX */}
-      <div className="hire-block" data-reveal-item>
+      <div className="hire-block">
         <div className="hire-subhead">
           <p className="eyebrow">
             <i /> HOW TO HIRE WITH PASCONX
@@ -397,7 +396,7 @@ export function HireWithUs() {
       </div>
 
       {/* 5. CTA Banner & Inquiry Form */}
-      <div className="hire-action-grid" data-reveal-item>
+      <div className="hire-action-grid">
         {/* Left Column: CTA + Partner Card */}
         <div className="hire-cta-column">
           <div className="hire-cta-card">

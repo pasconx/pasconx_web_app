@@ -9,7 +9,7 @@ import { TextLoop } from "@/components/ui/TextLoop";
 import { Preloader } from "@/components/ui/Preloader";
 import { ProgrammeCarousel } from "@/components/courses/ProgrammeCarousel";
 import { LiveProgrammeCarousel } from "@/components/courses/LiveProgrammeCarousel";
-import { ProgrammeTechVisual } from "@/components/courses/ProgrammeTechVisual";
+import { ProgrammeCardImage } from "@/components/courses/ProgrammeCardImage";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { courses as featureCourses, liveCourses } from "@/features/courses/data";
@@ -22,11 +22,31 @@ const getServerPreloaderPreference = () => false;
 const getClientPreloaderPreference = () => window.sessionStorage.getItem("pascalx-skip-preloader") === "true";
 
 const upcomingProgrammes = [
-  { title: "DevOps Master Course", detail: "Master DevOps, CI/CD, cloud infrastructure, containers, automation, and real-world deployment workflows.", image: media.upcoming.devops },
-  { title: "Java Full Stack", detail: "Java backend development, modern frontend technologies, scalable web applications, and practical full-stack projects.", image: media.upcoming.javaFullStack },
-  { title: "Python Full Stack", detail: "Full-stack development, Django, modern JavaScript, REST APIs, and practical web application projects.", image: media.upcoming.pythonFullStack },
-  { title: "Data Analyst", detail: "Transform raw data into business intelligence using SQL, Python, Pandas, Power BI, Statistics, and interactive dashboards.", image: media.upcoming.pythonFullStack },
-  { title: "AI/ML Engineer", detail: "Build production machine learning models, neural networks, Generative AI applications, and RAG pipelines.", image: media.courses.vapt },
+  {
+    title: "DevOps Master Course",
+    detail: "Master DevOps, CI/CD, cloud infrastructure, containers, automation, and real-world deployment workflows.",
+    image: "/images/programmes/devops.png",
+  },
+  {
+    title: "Java Full Stack",
+    detail: "Java backend development, modern frontend technologies, scalable web applications, and practical full-stack projects.",
+    image: "/images/programmes/java-fullstack.png",
+  },
+  {
+    title: "Python Full Stack",
+    detail: "Full-stack development, Django, modern JavaScript, REST APIs, and practical web application projects.",
+    image: "/images/programmes/python-fullstack.png",
+  },
+  {
+    title: "Data Analyst",
+    detail: "Transform raw data into meaningful insights using SQL, Python, data visualization, statistics, and modern analytics tools.",
+    image: "/images/programmes/data-analyst.png",
+  },
+  {
+    title: "AI / ML",
+    detail: "Build practical AI and Machine Learning skills using Python, machine learning algorithms, deep learning, and modern AI technologies.",
+    image: "/images/programmes/ai-ml.png",
+  },
 ];
 
 function Arrow() {
@@ -195,8 +215,9 @@ export default function Home() {
                   <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#learning")}>Learning model</Link>
                   <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#upcoming")}>Upcoming</Link>
                   <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#contact")}>Contact</Link>
+                  <Link href="/hire">Hire with us</Link>
                 </div>
-                <Link className="nav-cta-clean" href="/programmes">XPLORE PROGRAMMES <Arrow /></Link>
+                <Link className="nav-cta-clean" href="/programmes">EXPLORE PROGRAMMES <Arrow /></Link>
               </div>
               <button className={`mobile-nav-toggle${mobileNavOpen ? " is-open" : ""}`} type="button" aria-label={mobileNavOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={mobileNavOpen} aria-controls="mobile-navigation" onClick={() => setMobileNavOpen((open) => !open)}>
                 <span /><span /><span />
@@ -208,9 +229,10 @@ export default function Home() {
               <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#method")}>Approach</Link>
               <Link href="/programmes">Programmes</Link>
               <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#learning")}>Learning model</Link>
-              <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#upcoming")}>Upcoming programmes</Link>
-              <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#contact")}>Contact PasconX</Link>
-              <Link className="mobile-nav-primary" href="/programmes">XPLORE PROGRAMMES <Arrow /></Link>
+              <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#upcoming")}>Upcoming</Link>
+              <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#contact")}>Contact</Link>
+              <Link href="/hire">Hire with us</Link>
+              <Link className="mobile-nav-primary" href="/programmes">EXPLORE PROGRAMMES <Arrow /></Link>
             </div>
           </nav>
 
@@ -240,7 +262,6 @@ export default function Home() {
                 </h1>
                 <p className="hero-description">Practical, instructor-led technology training built around hands-on learning, real-world projects, and career-ready technical skills.</p>
               </div>
-              <div className="hero-bottom"><span className="scroll-mark">↓</span></div>
             </div>
           </section>
 
@@ -327,8 +348,15 @@ export default function Home() {
             <div className="upcoming-programmes-grid" data-reveal-item>
               {upcomingProgrammes.map((programme) => (
                 <article className="upcoming-programme-card" key={programme.title}>
-                  <div className="upcoming-programme-image"><ProgrammeTechVisual type={programme.title} /></div>
-                  <div className="upcoming-programme-copy"><span>LAUNCHING NEXT MONTH</span><h3>{programme.title}</h3><p>{programme.detail}</p><b>Next cohort enrolling</b></div>
+                  <div className="upcoming-programme-image">
+                    <ProgrammeCardImage image={programme.image} title={programme.title} />
+                  </div>
+                  <div className="upcoming-programme-copy">
+                    <span>UPCOMING PROGRAMME</span>
+                    <h3>{programme.title}</h3>
+                    <p>{programme.detail}</p>
+                    <b>COMING SOON</b>
+                  </div>
                 </article>
               ))}
             </div>

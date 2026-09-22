@@ -24,6 +24,7 @@ export const NAV_LINKS = [
   { name: "UPCOMING", href: "/upcoming" },
   { name: "ABOUT", href: "/about" },
   { name: "CONTACT", href: "/contact" },
+  { name: "HIRE WITH US", href: "/hire" },
 ];
 
 export const WHATSAPP_LINK = (programmeName?: string) => {
