@@ -5,13 +5,14 @@ import { usePathname } from "next/navigation";
 import type { MouseEvent } from "react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
-type SiteFooterProps = { backToTopHref?: string };
+type SiteFooterProps = { backToTopHref?: string; employerOnly?: boolean };
 
 const admissionsWhatsApp = "https://wa.me/919441276060?text=Hello%20PasconX%20Team%2C%0A%0AI%20would%20like%20guidance%20on%20choosing%20the%20most%20suitable%20technology%20programme.%20Could%20you%20please%20share%20the%20available%20options%2C%20upcoming%20cohort%20dates%2C%20learning%20format%2C%20and%20enrolment%20process%3F%0A%0AThank%20you.";
 
-export function SiteFooter({ backToTopHref = "#top" }: SiteFooterProps) {
+export function SiteFooter({ backToTopHref = "#top", employerOnly }: SiteFooterProps) {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isHire = employerOnly || pathname === "/hire";
 
   function smoothNavigate(event: MouseEvent<HTMLAnchorElement>, target: string, offset = -80) {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -36,13 +37,17 @@ export function SiteFooter({ backToTopHref = "#top" }: SiteFooterProps) {
 
   return (
     <footer className="site-footer" onClick={handleFooterClick}>
-      <div className="footer-orbit" aria-hidden="true"><span /><span /><span /></div>
-      <div className="footer-top"><p className="eyebrow"><i /> PASCON X / Live IT & Technology Education</p><span className="footer-signal">● COHORT ENQUIRIES OPEN</span></div>
-      <div className="footer-cta"><h2>Make your<br /><em>next move.</em></h2><div><p>PASCON X delivers live, tutor-led technology programmes for learners who want a practical method—not just a list of tools. Explore the curriculum, ask the right questions, and choose a cohort with confidence.</p><Link href="/programmes" className="footer-button">Explore programmes <span className="arrow" aria-hidden="true">↗</span></Link></div></div>
-      <section className="footer-contact" id="contact" aria-labelledby="footer-contact-heading"><div><p className="eyebrow"><i /> Admissions & programme guidance</p><h3 id="footer-contact-heading">Choose your next<br />learning move.</h3><p className="footer-contact-copy">Tell us where you are in your technology journey. We will help you compare the curriculum, learning format, and next available cohort.</p></div><div className="footer-contact-links"><a href={admissionsWhatsApp} target="_blank" rel="noreferrer"><span className="footer-enquiry-label"><i aria-hidden="true" /> DIRECT TUTOR ACCESS</span><strong>Talk to a tutor.</strong><small>Get availability, format, and next-cohort details directly.</small><span className="footer-whatsapp-button">Contact us <WhatsAppIcon /></span></a></div></section>
+      {!isHire && (
+        <>
+          <div className="footer-orbit" aria-hidden="true"><span /><span /><span /></div>
+          <div className="footer-top"><p className="eyebrow"><i /> PASCON X / Live IT & Technology Education</p><span className="footer-signal">● COHORT ENQUIRIES OPEN</span></div>
+          <div className="footer-cta"><h2>Make your<br /><em>next move.</em></h2><div><p>PASCON X delivers live, tutor-led technology programmes for learners who want a practical method—not just a list of tools. Explore the curriculum, ask the right questions, and choose a cohort with confidence.</p><Link href="/programmes" className="footer-button">Explore programmes <span className="arrow" aria-hidden="true">↗</span></Link></div></div>
+          <section className="footer-contact" id="contact" aria-labelledby="footer-contact-heading"><div><p className="eyebrow"><i /> Admissions & programme guidance</p><h3 id="footer-contact-heading">Choose your next<br />learning move.</h3><p className="footer-contact-copy">Tell us where you are in your technology journey. We will help you compare the curriculum, learning format, and next available cohort.</p></div><div className="footer-contact-links"><a href={admissionsWhatsApp} target="_blank" rel="noreferrer"><span className="footer-enquiry-label"><i aria-hidden="true" /> DIRECT TUTOR ACCESS</span><strong>Talk to a tutor.</strong><small>Get availability, format, and next-cohort details directly.</small><span className="footer-whatsapp-button">Contact us <WhatsAppIcon /></span></a></div></section>
+        </>
+      )}
       <div className="footer-bottom">
         <div><div className="footer-brand">PASCON<span>X</span></div><p className="footer-statement">Transforming Talent to IT Xperts through practical engineering instruction.</p></div>
-        <nav className="footer-links" aria-label="Footer navigation"><Link href="/programmes">Programmes</Link><Link href="/approach">Learning method</Link><Link href="/#faq">Questions & answers</Link></nav>
+        <nav className="footer-links" aria-label="Footer navigation"><Link href="/#live-programmes">Programmes</Link><Link href="/approach">Learning method</Link><Link href="/#faq">Questions & answers</Link></nav>
         <address className="footer-contact-details"><a href="tel:+919441276060"><span>Phone</span><strong>+91 94412 76060</strong></a><a href="mailto:connect@pasconx.com"><span>Email</span><strong>connect@pasconx.com</strong></a><a href="https://www.instagram.com/pasconx_academy" target="_blank" rel="noreferrer"><span>Instagram</span><strong>@pasconx_academy</strong></a></address>
         <div className="footer-meta">LIVE ONLINE PROGRAMMES<br />GUIDED PRACTICAL LABS<br />DIRECT TUTOR SUPPORT</div>
         <div className="footer-top-column"><a className="footer-top-link" href={isHome ? "/" : backToTopHref} onClick={isHome ? onHomeNavigate("top", 0) : undefined}>Back to top ↑</a><p className="footer-location"><svg className="india-flag" viewBox="0 0 30 20" role="img" aria-label="India"><path fill="#ff9933" d="M0 0h30v6.67H0z" /><path fill="#fff" d="M0 6.67h30v6.66H0z" /><path fill="#138808" d="M0 13.33h30V20H0z" /><circle cx="15" cy="10" r="2.55" fill="none" stroke="#1a4d9b" strokeWidth=".7" /><circle cx="15" cy="10" r=".45" fill="#1a4d9b" /><path d="M15 7.45v5.1M12.45 10h5.1M13.2 8.2l3.6 3.6M16.8 8.2l-3.6 3.6" stroke="#1a4d9b" strokeWidth=".45" /></svg> India</p></div>

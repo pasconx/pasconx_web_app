@@ -7,28 +7,12 @@ import { media } from "@/features/media/assets";
 
 const liveProgrammesData = [
   {
-    id: "soc",
-    slug: "cybersecurity",
-    badge: "LIVE PROGRAMME",
-    title: "Security Operations Center (SOC).",
-    description:
-      "Detect, analyze, investigate, and respond to security threats through real-world SOC monitoring and incident response practices.",
-    features: [
-      "Threat Monitoring",
-      "Log Analysis",
-      "Incident Investigation",
-      "Response & Containment",
-      "Security Reporting",
-    ],
-    image: media.courses.soc,
-  },
-  {
     id: "vapt",
-    slug: "cybersecurity",
+    slug: "vapt",
     badge: "LIVE PROGRAMME",
-    title: "Vulnerability Assessment and Penetration Testing (VAPT).",
+    title: "VAPT — Vulnerability Assessment & Penetration Testing",
     description:
-      "Learn to identify, assess, validate, and safely exploit security vulnerabilities through structured penetration testing practices.",
+      "Learn practical vulnerability assessment, web security testing, penetration-testing workflows, and security reporting.",
     features: [
       "Reconnaissance",
       "Scanning",
@@ -37,6 +21,22 @@ const liveProgrammesData = [
       "Analysis & Reporting",
     ],
     image: media.courses.vapt,
+  },
+  {
+    id: "soc",
+    slug: "security-operations-center-soc",
+    badge: "LIVE PROGRAMME",
+    title: "SOC Analyst",
+    description:
+      "Build practical skills in security monitoring, alert investigation, incident triage, threat detection, and incident response.",
+    features: [
+      "Threat Monitoring",
+      "Log Analysis",
+      "Incident Investigation",
+      "Response & Containment",
+      "Security Reporting",
+    ],
+    image: media.courses.soc,
   },
 ];
 
@@ -64,12 +64,10 @@ export function LiveProgrammeCards() {
               </div>
             </div>
 
-            <div className="live-card-body">
-              <h3>{prog.title}</h3>
-              <p>{prog.description}</p>
-            </div>
+            <h3 className="live-card-title">{prog.title}</h3>
+            <p className="live-card-desc">{prog.description}</p>
 
-            <div className="live-card-features" aria-label="Technical features">
+            <div className="live-card-features">
               {prog.features.map((feat) => (
                 <span className="live-card-tag" key={feat}>
                   <svg className="live-card-tag-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor">
@@ -83,7 +81,7 @@ export function LiveProgrammeCards() {
 
             <div className="live-card-bottom">
               <Link className="live-card-cta" href={`/programmes/${prog.slug}`}>
-                <span>View programme</span>
+                <span>VIEW PROGRAMME</span>
                 <i aria-hidden="true">↗</i>
               </Link>
             </div>

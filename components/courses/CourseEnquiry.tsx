@@ -6,8 +6,9 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 const tutorWhatsAppNumber = "9441276060";
 
-export function CourseEnquiry({ course }: { course: Course }) {
+export function CourseEnquiry({ course, programmeTitle }: { course?: Course; programmeTitle?: string }) {
   const [sent, setSent] = useState(false);
+  const title = programmeTitle || course?.title || "Technology Programme";
 
   function submitEnquiry(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -17,7 +18,7 @@ export function CourseEnquiry({ course }: { course: Course }) {
       "*PASCONX | COURSE ENQUIRY*",
       "",
       "*Programme*",
-      course.title,
+      title,
       "",
       "*Learner Details*",
       `Name: ${learnerName}`,
@@ -26,7 +27,7 @@ export function CourseEnquiry({ course }: { course: Course }) {
       "",
       "Hello PasconX Team,",
       "",
-      `I would like to enquire about the ${course.title} programme. Could you please share the upcoming cohort availability, learning schedule, and enrolment process?`,
+      `I would like to enquire about the ${title} programme. Could you please share the upcoming cohort availability, learning schedule, and enrolment process?`,
       "",
       `Kind regards,\n${learnerName}`,
     ].join("\n");

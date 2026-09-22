@@ -1,24 +1,29 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function CourseBackLink() {
+  const router = useRouter();
+
   return (
-    <Link
-      href="/"
-      scroll={false}
+    <button
+      type="button"
       className="course-back"
       aria-label="Back to all programmes"
       onClick={() => {
-        // Do not let a moving Lenis frame carry into the route transition.
         window.__pascalxLenis?.stop();
-        window.sessionStorage.setItem("pascalx-scroll-target", "programs");
+        window.sessionStorage.setItem("pascalx-scroll-target", "live-programmes");
         window.sessionStorage.setItem("pascalx-skip-preloader", "true");
+        if (typeof window !== "undefined" && window.history.length > 1) {
+          router.back();
+        } else {
+          router.push("/#live-programmes");
+        }
       }}
     >
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19 12H5M11 18l-6-6 6-6" />
       </svg>
-    </Link>
+    </button>
   );
 }

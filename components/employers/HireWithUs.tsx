@@ -304,21 +304,32 @@ export function HireWithUs() {
       id="hire"
       aria-labelledby="hire-heading"
     >
-      {/* 1. Header Block */}
-      <div className="hire-header">
-        <p className="eyebrow">
-          <i /> FOR EMPLOYERS
-        </p>
-        <h2 id="hire-heading" className="hire-heading">
-          Hire with PASCONX.
-          <br />
-          <em className="hire-gradient-accent">Meet your next tech talent.</em>
-        </h2>
-        <p className="hire-intro">
-          Looking for skilled, motivated technology talent? Partner with PASCONX
-          to connect with learners trained in practical, industry-focused
-          technologies and real-world projects.
-        </p>
+      {/* 1. Hero Block with Corporate Background Visual */}
+      <div className="hire-hero">
+        <div className="hire-hero-bg" aria-hidden="true">
+          <img
+            src="/images/hire-with-us-hero.png"
+            alt="Corporate technology team meeting"
+            className="hire-hero-image"
+            loading="eager"
+          />
+          <div className="hire-hero-overlay" />
+        </div>
+        <div className="hire-hero-content">
+          <p className="eyebrow">
+            <i /> FOR EMPLOYERS
+          </p>
+          <h2 id="hire-heading" className="hire-heading">
+            Hire with PASCONX.
+            <br />
+            <em className="hire-gradient-accent">Meet your next tech talent.</em>
+          </h2>
+          <p className="hire-intro">
+            Looking for skilled, motivated technology talent? Partner with PASCONX
+            to connect with learners trained in practical, industry-focused
+            technologies and real-world projects.
+          </p>
+        </div>
       </div>
 
       {/* 2. Why Hire PASCONX Talent */}

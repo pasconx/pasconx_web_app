@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
-import { PROGRAMMES } from "@/lib/programmes";
 import { BRAND } from "@/lib/constants";
+import { getAllProgrammeSlugs } from "@/lib/programmeDetailData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BRAND.website;
@@ -21,8 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1.0 : 0.8,
   }));
 
-  const programmeRoutes = PROGRAMMES.map((prog) => ({
-    url: `${baseUrl}/programmes/${prog.slug}`,
+  const programmeRoutes = getAllProgrammeSlugs().map((slug) => ({
+    url: `${baseUrl}/programmes/${slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.9,

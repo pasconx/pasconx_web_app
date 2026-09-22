@@ -188,7 +188,8 @@ export default function Home() {
   }
 
   const programsSection = (
-    <section className="programs" id="programs" data-reveal>
+    <section className="programs" id="live-programmes" data-reveal style={{ scrollMarginTop: "90px" }}>
+      <span id="programs" className="sr-only" aria-hidden="true" />
       <div className="section-top" data-reveal-item><p className="eyebrow"><i /> Select your discipline</p></div>
       <h2 data-reveal-item className="programs-heading">
         <span className="live-green-radar" aria-hidden="true"><span className="live-green-dot" /></span>
@@ -205,13 +206,21 @@ export default function Home() {
         <main id="main-content" tabIndex={-1} className={`min-h-screen page-transition${pageReady ? " is-ready" : ""}`}>
           <nav className={`nav${navHidden && !mobileNavOpen ? " nav-hidden" : ""}`}>
             <div className="nav-inner">
-              <Link className="brand" href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#top")} aria-label="PasconX home">
-                PASCON<span>X</span>
+              <Link className="brand nav-brand-logo" href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#top")} aria-label="PASCONX ACADEMY home">
+                <Image
+                  src="/assets/brand/pasconx-academy-navbar.png"
+                  alt="PASCONX ACADEMY"
+                  width={135}
+                  height={26}
+                  priority
+                  unoptimized
+                  className="nav-brand-img"
+                />
               </Link>
               <div className="nav-right-container">
                 <div className="nav-links">
                   <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#method")}>Approach</Link>
-                  <Link href="/programmes">Programmes</Link>
+                  <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#live-programmes")}>Programmes</Link>
                   <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#learning")}>Learning model</Link>
                   <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#upcoming")}>Upcoming</Link>
                   <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#contact")}>Contact</Link>
@@ -227,12 +236,12 @@ export default function Home() {
             <div className={`mobile-nav-panel${mobileNavOpen ? " is-open" : ""}`} id="mobile-navigation">
               <p className="mobile-nav-label">Navigate</p>
               <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#method")}>Approach</Link>
-              <Link href="/programmes">Programmes</Link>
+              <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#live-programmes")}>Programmes</Link>
               <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#learning")}>Learning model</Link>
               <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#upcoming")}>Upcoming</Link>
               <Link href="/" scroll={false} onClick={(event) => smoothNavigate(event, "#contact")}>Contact</Link>
-              <Link href="/hire">Hire with us</Link>
-              <Link className="mobile-nav-primary" href="/programmes">EXPLORE PROGRAMMES <Arrow /></Link>
+              <Link href="/hire" onClick={() => setMobileNavOpen(false)}>Hire with us</Link>
+              <Link className="mobile-nav-primary" href="/programmes" onClick={() => setMobileNavOpen(false)}>EXPLORE PROGRAMMES <Arrow /></Link>
             </div>
           </nav>
 

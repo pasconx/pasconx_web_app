@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 function Arrow() {
@@ -41,13 +42,21 @@ export function Navbar() {
   return (
     <nav className={`nav${navHidden && !mobileNavOpen ? " nav-hidden" : ""}`}>
       <div className="nav-inner">
-        <Link className="brand" href="/" aria-label="PasconX home">
-          PASCON<span>X</span>
+        <Link className="brand nav-brand-logo" href="/" aria-label="PASCONX ACADEMY home">
+          <Image
+            src="/assets/brand/pasconx-academy-navbar.png"
+            alt="PASCONX ACADEMY"
+            width={135}
+            height={26}
+            priority
+            unoptimized
+            className="nav-brand-img"
+          />
         </Link>
         <div className="nav-right-container">
           <div className="nav-links">
             <Link href="/#method">Approach</Link>
-            <Link href="/programmes">Programmes</Link>
+            <Link href="/#live-programmes">Programmes</Link>
             <Link href="/#learning">Learning model</Link>
             <Link href="/#upcoming">Upcoming</Link>
             <Link href="/#contact">Contact</Link>
@@ -80,15 +89,28 @@ export function Navbar() {
       )}
       <div className={`mobile-nav-panel${mobileNavOpen ? " is-open" : ""}`} id="mobile-navigation">
         <p className="mobile-nav-label">Navigate</p>
-        <Link href="/#method">Approach</Link>
-        <Link href="/programmes">Programmes</Link>
-        <Link href="/#learning">Learning model</Link>
-        <Link href="/#upcoming">Upcoming</Link>
-        <Link href="/#contact">Contact</Link>
-        <Link href="/hire" className={isHire ? "is-active" : ""}>
+        <Link href="/#method" onClick={() => setMobileNavOpen(false)}>Approach</Link>
+        <Link
+          href="/#live-programmes"
+          onClick={() => setMobileNavOpen(false)}
+        >
+          Programmes
+        </Link>
+        <Link href="/#learning" onClick={() => setMobileNavOpen(false)}>Learning model</Link>
+        <Link href="/#upcoming" onClick={() => setMobileNavOpen(false)}>Upcoming</Link>
+        <Link href="/#contact" onClick={() => setMobileNavOpen(false)}>Contact</Link>
+        <Link
+          href="/hire"
+          className={isHire ? "is-active" : ""}
+          onClick={() => setMobileNavOpen(false)}
+        >
           Hire with us
         </Link>
-        <Link className="mobile-nav-primary" href="/programmes">
+        <Link
+          className="mobile-nav-primary"
+          href="/programmes"
+          onClick={() => setMobileNavOpen(false)}
+        >
           EXPLORE PROGRAMMES <Arrow />
         </Link>
       </div>

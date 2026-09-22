@@ -8,13 +8,13 @@ import { media } from "@/features/media/assets";
 const liveProgrammes = [
   {
     id: "vapt",
-    slug: "cybersecurity",
+    slug: "vapt",
     watermark: "VAPT",
     badge: "LIVE PROGRAMME",
-    title: "Vulnerability Assessment and Penetration Testing (VAPT).",
+    title: "VAPT — Vulnerability Assessment & Penetration Testing",
     tagline: "Learn. Identify. Exploit. Secure.",
     description:
-      "The Offensive Red Team Transformation Program. Learn to find, verify, and safely exploit security flaws before malicious attackers do.",
+      "Learn practical vulnerability assessment, web security testing, penetration-testing workflows, and security reporting.",
     pipeline: [
       { step: "01", label: "VULNERABILITY ASSESSMENT", icon: "🔍" },
       { step: "02", label: "PENETRATION TESTING", icon: "🎯" },
@@ -32,13 +32,13 @@ const liveProgrammes = [
   },
   {
     id: "soc",
-    slug: "cybersecurity",
+    slug: "security-operations-center-soc",
     watermark: "SOC",
     badge: "LIVE PROGRAMME",
-    title: "Security Operations Center (SOC).",
+    title: "SOC Analyst",
     tagline: "Detect. Investigate. Contain. Protect.",
     description:
-      "The Enterprise Blue Team Defense Program. Monitor telemetry in Splunk/Wazuh SIEM, triage intrusion alerts, and hunt threats across live networks.",
+      "Build practical skills in security monitoring, alert investigation, incident triage, threat detection, and incident response.",
     pipeline: [
       { step: "01", label: "TELEMETRY INGESTION", icon: "📡" },
       { step: "02", label: "SIEM MONITORING", icon: "📊" },
