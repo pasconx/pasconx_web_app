@@ -46,7 +46,7 @@ export function SiteFooter({ backToTopHref = "#top", employerOnly }: SiteFooterP
         </>
       )}
       <div className="footer-bottom">
-        <div><div className="footer-brand">PASCON<span>X</span></div><p className="footer-statement">Transforming Talent to IT Xperts through practical engineering instruction.</p></div>
+        <div><div className="footer-brand">PASCON<span>X</span> <span style={{ color: "#ffffff" }}>ACADEMY</span></div><p className="footer-statement">Transforming Talent to IT Xperts through practical engineering instruction.</p></div>
         <nav className="footer-links" aria-label="Footer navigation"><Link href="/#live-programmes">Programmes</Link><Link href="/approach">Learning method</Link><Link href="/#faq">Questions & answers</Link></nav>
         <address className="footer-contact-details"><a href="tel:+919441276060"><span>Phone</span><strong>+91 94412 76060</strong></a><a href="mailto:connect@pasconx.com"><span>Email</span><strong>connect@pasconx.com</strong></a><a href="https://www.instagram.com/pasconx_academy" target="_blank" rel="noreferrer"><span>Instagram</span><strong>@pasconx_academy</strong></a></address>
         <div className="footer-meta">LIVE ONLINE PROGRAMMES<br />GUIDED PRACTICAL LABS<br />DIRECT TUTOR SUPPORT</div>

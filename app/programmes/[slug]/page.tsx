@@ -83,12 +83,12 @@ export default async function ProgrammeDetailPage({
           </h1>
           <p>{programme.supportingText}</p>
           <div className="course-hero-meta">
-            <span>DURATION</span>
-            <span>{programme.duration}</span>
-            <span>FORMAT</span>
-            <span>{programme.format}</span>
-            <span>STATUS</span>
-            <span>{programme.status}</span>
+            <span className="meta-value">LIVE COHORT</span>
+            <span aria-hidden="true" className="meta-dot">·</span>
+            <span className="meta-label">FORMAT</span>
+            <span className="meta-value">{programme.format}</span>
+            <span className="meta-label">STATUS</span>
+            <span className="meta-value">{programme.status}</span>
           </div>
         </div>
       </section>

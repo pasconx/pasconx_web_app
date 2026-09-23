@@ -255,7 +255,7 @@ export default function Home() {
               <div className="hero-copy">
                 <p className="eyebrow"><i /> Industry-Focused Technology Education · Live Cohorts</p>
                 <h1>
-                  <span className="hero-title-leading">Build skills</span>
+                  <span className="hero-title-leading">Build Skills</span>
                   <em>
                     <TextLoop
                       items={[

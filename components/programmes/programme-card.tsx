@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Programme } from "@/lib/programmes";
-import { ArrowUpRight, Clock, Layers } from "lucide-react";
+import { ArrowUpRight, Layers } from "lucide-react";
 
 interface ThemeConfig {
   cardHoverBorder: string;
@@ -237,12 +237,8 @@ export function ProgrammeCard({ programme }: { programme: Programme }) {
 
         {/* Card Footer Meta & View Programme Button */}
         <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-muted gap-2">
-          <div className="flex items-center gap-3 font-mono text-[11px]">
-            <span className="flex items-center gap-1 text-white/75">
-              <Clock className="w-3.5 h-3.5 text-[#3b82f6]" />
-              {programme.duration}
-            </span>
-            <span className="flex items-center gap-1 text-white/75">
+          <div className="flex items-center font-mono text-[11px]">
+            <span className="flex items-center gap-1.5 text-white/75">
               <Layers className="w-3.5 h-3.5 text-[#3b82f6]" />
               {programme.level}
             </span>
