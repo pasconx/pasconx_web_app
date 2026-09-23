@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { StructuredData } from "@/components/seo/StructuredData";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a className="skip-link" href="#main-content">Skip to main content</a>
           <SmoothScroll />
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
